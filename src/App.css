@@ -40,3 +40,33 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.heart {
+  position: fixed;
+  bottom: -10%;
+  color: #ff4d6d;
+  font-size: 20px;
+  user-select: none;
+  pointer-events: none;
+  animation: float linear forwards;
+  z-index: 0;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-100px); }
+}
+.animate-bounce {
+  animation: bounce 3s linear infinite;
+}
