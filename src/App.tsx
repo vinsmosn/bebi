@@ -1,49 +1,37 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react"; // Removed 'useRef'
 
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Responsive button size: increases faster on mobile but stays manageable
+  // Removed isPlaying and audioRef
+
   const yesButtonSize = noCount * 15 + 16;
 
   const handleNoClick = () => {
     setNoCount(noCount + 1);
   };
 
-  const toggleMusic = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
   const getNoButtonText = () => {
     const phrases = [
       "No",
-      "are you sure?",
+      "bae?!",
       "WAIT",
       "wait nga kase",
       "how about aitclim?",
       "HUY",
       "Don’t rush, take your time (say yes)",
       "PUDNO KADI?",
-      "teka muna 😭(",
-      "Please reconsider 😌",
+      "teka muna 😭",
+      "please reconsider 😌",
       "I blinked, try again",
       "wrong answer po",
       "PRETTY PLEASE",
       "AY APO 😩",
       "Error 404: yes not found",
       "Universe says yes actually",
-      "Okay last na talaga (not last)",
+      "okay last na talaga (not last)",
       "Ay wen kadi?",
       "👁️👄👁️",
     ];
@@ -52,7 +40,6 @@ export default function Page() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-pink-50 p-4 text-center overflow-hidden">
-      {/* 1. Floating Hearts Background Effect */}
       {yesPressed && (
         <div className="fixed inset-0 pointer-events-none">
           {[...Array(20)].map((_, i) => (
@@ -74,24 +61,15 @@ export default function Page() {
 
       {yesPressed ? (
         <div className="z-10 flex flex-col items-center">
-          {/* 2. Audio Element - Make sure 'our-song.mp3' is in your /public folder */}
-          <audio ref={audioRef} src="/our-song.mp3" loop />
-          
+          {/* Audio element and toggle button removed */}
           <img 
             className="mx-auto" 
             src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" 
             alt="Bear Kiss"
           />
           <div className="my-4 text-2xl md:text-4xl font-bold font-serif text-pink-600 animate-pulse">
-            I LOVE YOU SO MUCH, MY AJJI ;)) !!!
+            I LOVE YOU 3000, MY AJJI !!!
           </div>
-
-          <button 
-            onClick={toggleMusic}
-            className="mt-4 rounded-full bg-pink-500 px-8 py-3 text-white font-bold shadow-xl hover:scale-105 transition-all"
-          >
-            {isPlaying ? "Pause Music 🎵" : "Play Our Song 🎶"}
-          </button>
         </div>
       ) : (
         <div className="z-10 flex flex-col items-center">
@@ -104,7 +82,6 @@ export default function Page() {
             Avryle, can I be your Valentine?
           </h1>
           
-          {/* Mobile responsive buttons: vertical on small screens, horizontal on larger */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             <button
               className="rounded-lg bg-green-500 px-8 py-2 font-bold text-white shadow-lg hover:bg-green-600 active:scale-95 transition-all"
@@ -122,6 +99,16 @@ export default function Page() {
           </div>
         </div>
       )}
+
+      <style>{`
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-100px); }
+        }
+        .animate-bounce {
+          animation: bounce 3s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }
