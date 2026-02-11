@@ -16,23 +16,21 @@ export default function Page() {
   const getNoButtonText = () => {
     const phrases = [
       "No",
-      "bae?!",
+      "HUY?!",
       "WAIT",
       "wait nga kase",
-      "how about aitclim?",
-      "HUY",
+      "are you really really sure?",
+      "I can feel a yes coming",
       "Don’t rush, take your time (say yes)",
-      "PUDNO KADI?",
+      "this feels negotiable",
       "teka muna 😭",
       "please reconsider 😌",
       "I blinked, try again",
       "wrong answer po",
       "PRETTY PLEASE",
-      "AY APO 😩",
       "Error 404: yes not found",
       "Universe says yes actually",
       "okay last na talaga (not last)",
-      "Ay wen kadi?",
       "👁️👄👁️",
     ];
     return phrases[Math.min(noCount, phrases.length - 1)];
@@ -68,7 +66,7 @@ export default function Page() {
             alt="Bear Kiss"
           />
           <div className="my-4 text-2xl md:text-4xl font-bold font-serif text-pink-600 animate-pulse">
-            I LOVE YOU 3000, MY AJJI !!!
+            I LOVE YOU SO MUCHHH, MY BEBI !!!
           </div>
         </div>
       ) : (
@@ -79,7 +77,8 @@ export default function Page() {
             alt="Bear with Roses"
           />
           <h1 className="my-6 text-2xl md:text-4xl font-serif text-gray-800 px-4">
-            Avryle, can I be your Valentine?
+            
+            Bebi, can I be your Valentine?
           </h1>
           
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
